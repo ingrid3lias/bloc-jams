@@ -51,7 +51,7 @@ var createSongRow = function(songNumber, songName, songLength) {
             currentlyPlayingSongElement.html(currentlyPlayingSong);
         }
         
-        else if(currentlyPlayingSong !== songItemNumber){
+        if(currentlyPlayingSong !== songItemNumber){
             $(this).html(pauseButtonTemplate);
             currentlyPlayingSong = songItemNumber;
             
