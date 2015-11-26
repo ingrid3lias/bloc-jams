@@ -91,27 +91,20 @@ var nextSong = function(){
     
     //Know what the previous song is
     
-    var previousSongNumber = function(index) {
-        if(index === currentAlbum.songs.length){
-            index = 0;
-        }
-        return index;
-    };
         
     //Use trackIndex() to get the index of the current song, and increment the value
-    
     var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
     currentSongIndex++;
     
     if(currentSongIndex >= currentAlbum.songs.length){
         currentSongIndex = 0;
-    };
+    }
        
     //Set a new current song 
     
     currentlyPlayingSongNumber = currentSongIndex + 1;
     currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
-        
+    
     //Update the player bar
         
     $('.currently-playing .song-name').text(currentSongFromAlbum.name);
@@ -120,14 +113,13 @@ var nextSong = function(){
     $('.main-controls .play-pause').html(playerBarPauseButton);
     
     //Update the HTML
-    var previousSong = ;
-    var newSong = ;
     
 };
+
     
-var previousSong = function() {
+//var previousSong = function() {
     
-};
+//};
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
