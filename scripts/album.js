@@ -180,6 +180,21 @@ var updatePlayerBarSong = function(){
     $('.main-controls .play-pause').html(playerBarPauseButton);
 };
 
+var togglePlayFromPlayerBar = function() {
+    
+    var songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
+    
+    if(currentSoundFile.isPaused()){
+        songNumberCell.html(pauseButtonTemplate);
+        $('.main-controls .play-pause').html(playerBarPauseButton);
+        currentSoundFile.play();
+    } else if(currentSoundFile.play()){
+        songNumberCell.html(playButtonTemplate);
+        $('.main-controls .play-pause').html(playerBarPlayButton);
+        currentSoundFile.pause();
+    }
+};
+
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
 var playerBarPlayButton = '<span class="ion-play"></span>'
@@ -198,9 +213,11 @@ $(document).ready(function() {
     
     var $nextButton = $('.main-controls .next');
     var $previousButton = $('.main-controls .previous');
+    var $playPauseButton = $('.main-controls .play-pause');
     
     $nextButton.click(nextSong);
     $previousButton.click(previousSong);
+    $playPauseButton.click(togglePlayFromPlayerBar);
 });
 
 
