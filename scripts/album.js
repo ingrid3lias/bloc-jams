@@ -148,6 +148,10 @@ var filterTimeCode = function(timeInSeconds) {
     var wholeMinutes = Math.floor(songInSeconds/60);
     var wholeSeconds = Math.floor(songInSeconds) - (60 * wholeMinutes);
     
+    if(wholeSeconds < 10) {
+        wholeSeconds = '0' + wholeSeconds;
+    }
+    
     return wholeMinutes + ':' + wholeSeconds;
 };
 
